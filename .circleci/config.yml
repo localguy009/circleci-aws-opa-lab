@@ -25,7 +25,7 @@ jobs:
       - run:
           name: Authenticate to AWS (OIDC)
           command: |
-            export AWS_ROLE_ARN="arn:aws:iam::422017356233:role/CircleCILabRole"
+            export AWS_ROLE_ARN="arn:aws:iam::<YOUR_ACCOUNT_ID>:role/CircleCILabRole"
             export AWS_WEB_IDENTITY_TOKEN_FILE="/tmp/web-identity-token"
             echo $CIRCLE_OIDC_TOKEN > $AWS_WEB_IDENTITY_TOKEN_FILE
 
