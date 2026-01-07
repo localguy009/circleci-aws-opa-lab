@@ -40,7 +40,7 @@ jobs:
             terraform show -json tfplan > plan.json
 
       - run:
-          name: OPA Policy Check (REAL)
+          name: OPA Policy Check
           command: |
             cat > input.json << EOF
             {
@@ -58,7 +58,7 @@ jobs:
             fi
 
       - run:
-          name: Terraform Apply (ONLY IF COMPLIANT)
+          name: Terraform Apply
           command: |
             cd terraform
             terraform apply -auto-approve
@@ -68,3 +68,8 @@ jobs:
           command: |
             cd terraform
             terraform destroy -auto-approve
+
+workflows:
+  policy-and-deploy-workflow:
+    jobs:
+      - policy-and-deploy
